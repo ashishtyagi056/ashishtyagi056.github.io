@@ -20,10 +20,10 @@
     <div class="brand"></div>
 
     <nav class="nav-links">
-      <a href="#hero">Home</a>
-      <a href="#android-impact">Android Impact</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
+      <a href="#hero" data-section="home">Home</a>
+      <a href="#android-impact" data-section="android-impact">Android Impact</a>
+      <a href="#experience" data-section="experience">Experience</a>
+      <a href="#skills" data-section="skills">Skills</a>
     </nav>
   </div>
 </header>
@@ -273,6 +273,34 @@
   </div>
 
 </footer>
+
+<script>
+  document.querySelector('.nav-links a[href="#hero"]').classList.add("active");
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  const observer = new IntersectionObserver(
+          entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const id = entry.target.getAttribute("id");
+
+                navLinks.forEach(link => {
+                  link.classList.toggle(
+                          "active",
+                          link.getAttribute("href") === `#${id}`
+                  );
+                });
+              }
+            });
+          },
+          {
+            rootMargin: "-40% 0px -55% 0px"
+          }
+  );
+
+  sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>

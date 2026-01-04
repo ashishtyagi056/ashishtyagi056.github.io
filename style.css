@@ -430,6 +430,14 @@ body {
   width: 100%;
 }
 
+.nav-links a.active {
+  color: #0f172a;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
 @media (max-width: 600px) {
 
   .header-inner {
