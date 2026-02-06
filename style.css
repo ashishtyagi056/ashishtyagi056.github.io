@@ -426,9 +426,9 @@ body {
   color: #0f172a;
 }
 
-.nav-links a:hover::after {
+/*.nav-links a:hover::after {
   width: 100%;
-}
+}*/
 
 .nav-links a.active {
   color: #0f172a;
